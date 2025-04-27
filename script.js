@@ -329,9 +329,5 @@ if (contactForm) {
                 alert('Something went wrong. Please try again later.');
             }
         })
-        .catch(error => {
-            console.error('Error submitting form:', error);
-            alert('There was an error submitting your form.');
-        });
     });
 }
