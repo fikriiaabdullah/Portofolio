@@ -310,11 +310,28 @@ if (contactForm) {
             return;
         }
         
-        // Here you would normally send the form data to a server
-        // For now, just show a success message
-        alert('Thank you for your message! I will get back to you soon.');
-        
-        // Reset form
-        this.reset();
+        // Create form data object
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
+
+        // Send the data to Formspree
+        fetch('https://formspree.io/f/movdvppn', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            } else {
+                alert('Something went wrong. Please try again later.');
+            }
+        })
+        .catch(error => {
+            console.error('Error submitting form:', error);
+            alert('There was an error submitting your form.');
+        });
     });
 }
