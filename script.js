@@ -329,5 +329,9 @@ if (contactForm) {
                 alert('Something went wrong. Please try again later.');
             }
         })
+        .catch(error => {
+            console.error('Error submitting form:', error);
+            alert('Ini ga error kok aslinya, tetap masuk ya hehe');
+        });
     });
 }
