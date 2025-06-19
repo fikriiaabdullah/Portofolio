@@ -4,7 +4,6 @@ document.getElementById("menu-toggle").addEventListener("click", () => {
 })
 
 // Initialize Typed.js
-import Typed from "typed.js"
 const typed = new Typed("#typed-text", {
   strings: ["AI Engineer", "Machine Learning Specialist", "Full Stack Developer", "Data Scientist"],
   typeSpeed: 50,
@@ -15,7 +14,6 @@ const typed = new Typed("#typed-text", {
 })
 
 // Initialize particles.js
-import particlesJS from "particles.js"
 particlesJS("particles-js", {
   particles: {
     number: {
@@ -127,9 +125,6 @@ document.addEventListener("mouseout", () => {
 })
 
 // GSAP Animations
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
 document.addEventListener("DOMContentLoaded", () => {
   // Hero section animations
   gsap.to(".text-animation", {
@@ -352,31 +347,31 @@ function openProjectModal(projectId) {
     modalTitle.textContent = "Ziyadbook E-commerce Platform"
     modalContent.innerHTML = `
             <div class="screenshot-item">
-                <img src="assets/ecommerce-home.jpg" alt="Homepage" onerror="this.src='/placeholder.svg?height=400&width=600'">
+                <img src="assets/ecommerce-home.png" alt="Homepage" onerror="this.src='/placeholder.svg?height=400&width=600'">
                 <div class="screenshot-description">
                     <strong>Homepage:</strong> Modern and responsive landing page with featured products, categories, and promotional banners. Built with Tailwind CSS for optimal user experience.
                 </div>
             </div>
             <div class="screenshot-item">
-                <img src="assets/ecommerce-products.jpg" alt="Product Catalog" onerror="this.src='/placeholder.svg?height=400&width=600'">
+                <img src="assets/ecommerce-products.png" alt="Product Catalog" onerror="this.src='/placeholder.svg?height=400&width=600'">
                 <div class="screenshot-description">
                     <strong>Product Catalog:</strong> Comprehensive product listing with advanced filtering, search functionality, and pagination. Integrated with Laravel's Eloquent ORM for efficient data management.
                 </div>
             </div>
             <div class="screenshot-item">
-                <img src="assets/ecommerce-cart.jpg" alt="Shopping Cart" onerror="this.src='/placeholder.svg?height=400&width=600'">
+                <img src="assets/ecommerce-cart.png" alt="Shopping Cart" onerror="this.src='/placeholder.svg?height=400&width=600'">
                 <div class="screenshot-description">
                     <strong>Shopping Cart:</strong> Interactive shopping cart with real-time updates, quantity adjustments, and shipping cost calculation using Raja Ongkir API.
                 </div>
             </div>
             <div class="screenshot-item">
-                <img src="assets/ecommerce-checkout.jpg" alt="Checkout Process" onerror="this.src='/placeholder.svg?height=400&width=600'">
+                <img src="assets/ecommerce-checkout.png" alt="Checkout Process" onerror="this.src='/placeholder.svg?height=400&width=600'">
                 <div class="screenshot-description">
                     <strong>Checkout Process:</strong> Streamlined checkout flow with multiple payment options, address validation, and Meta Pixel integration for conversion tracking.
                 </div>
             </div>
             <div class="screenshot-item">
-                <img src="assets/ecommerce-admin.jpg" alt="Admin Dashboard" onerror="this.src='/placeholder.svg?height=400&width=600'">
+                <img src="assets/ecommerce-admin.png" alt="Admin Dashboard" onerror="this.src='/placeholder.svg?height=400&width=600'">
                 <div class="screenshot-description">
                     <strong>Admin Dashboard:</strong> Comprehensive admin panel for managing products, orders, customers, and analytics. Built with Laravel's authentication and authorization system.
                 </div>
@@ -419,3 +414,7 @@ document.addEventListener("keydown", (e) => {
     closeProjectModal()
   }
 })
+
+// Make functions global so they can be called from HTML
+window.openProjectModal = openProjectModal
+window.closeProjectModal = closeProjectModal

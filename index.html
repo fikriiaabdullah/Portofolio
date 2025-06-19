@@ -356,7 +356,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="project-card card overflow-hidden opacity-0">
                     <img src="assets/hr manajemen.jpg" alt="HR Management Website" class="w-full h-48 object-cover">
                     <div class="project-overlay">
@@ -376,8 +376,9 @@
                         </a>
                     </div>
                 </div>
+                
                 <div class="project-card card overflow-hidden opacity-0">
-                    <img src="assets/hr manajemen.jpg" alt="Ziyadbook E-commerce" class="w-full h-48 object-cover">
+                    <img src="assets/ecommerce-home.png" alt="Ziyadbook E-commerce" class="w-full h-48 object-cover">
                     <div class="project-overlay">
                         <h3 class="text-xl font-bold mb-2">Ziyadbook E-commerce</h3>
                         <p class="text-slate-300 mb-4">A comprehensive e-commerce platform built with Laravel and Tailwind CSS, featuring Meta Pixel integration for analytics and Raja Ongkir API for shipping cost calculations across Indonesia.</p>
@@ -394,7 +395,7 @@
                             </svg>
                         </button>
                     </div>
-                </div>               
+                </div>             
             </div>
         </div>
     </section>
@@ -659,3 +660,22 @@
         </div>
     </div>
 </footer>
+
+<!-- Project Modal -->
+<div id="projectModal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle" class="text-2xl font-bold gradient-text">Project Screenshots</h3>
+            <button onclick="closeProjectModal()" class="modal-close">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="modalContent" class="space-y-4">
+                <!-- Screenshots will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
