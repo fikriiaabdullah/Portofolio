@@ -5,7 +5,7 @@ document.getElementById("menu-toggle").addEventListener("click", () => {
 
 // Initialize Typed.js
 const typed = new Typed("#typed-text", {
-  strings: ["AI Engineer", "Machine Learning Specialist", "Full Stack Developer", "Data Scientist"],
+  strings: ["Fullstack Developer", "Backend Developer", "Laravel Developer", "Aspiring Infrastructure Engineer"],
   typeSpeed: 50,
   backSpeed: 30,
   backDelay: 1500,
