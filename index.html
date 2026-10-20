@@ -1,836 +1,397 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fikri Abdullah - Fullstack & Backend Developer Portfolio</title>
+    <title>Fikri Abdullah — Software Engineer</title>
+    <meta name="description" content="Fikri Abdullah, software engineer. Building AI and automation tools for project control at PT Wijaya Karya's Building Division; fullstack and backend before that.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script>
+        // Apply a saved theme before first paint so the page doesn't flash
+        try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t } catch {}
+    </script>
 </head>
-<body class="min-h-screen">
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    <div id="particles-js"></div>
-    
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">F</span>
-                    </div>
-                    <span class="text-xl font-bold gradient-text">Fikri Abdullah</span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-slate-300 hover:text-white transition-colors">Home</a>
-                    <a href="#about" class="nav-link text-slate-300 hover:text-white transition-colors">About</a>
-                    <a href="#experience" class="nav-link text-slate-300 hover:text-white transition-colors">Experience</a>
-                    <a href="#projects" class="nav-link text-slate-300 hover:text-white transition-colors">Projects</a>
-                    <a href="#skills" class="nav-link text-slate-300 hover:text-white transition-colors">Skills</a>
-                    <a href="#contact" class="nav-link text-slate-300 hover:text-white transition-colors">Contact</a>
-                </div>
-                
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-slate-300 hover:text-white focus:outline-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2 space-y-3">
-                <a href="#home" class="block py-2 text-slate-300 hover:text-white transition-colors">Home</a>
-                <a href="#about" class="block py-2 text-slate-300 hover:text-white transition-colors">About</a>
-                <a href="#experience" class="block py-2 text-slate-300 hover:text-white transition-colors">Experience</a>
-                <a href="#projects" class="block py-2 text-slate-300 hover:text-white transition-colors">Projects</a>
-                <a href="#skills" class="block py-2 text-slate-300 hover:text-white transition-colors">Skills</a>
-                <a href="#contact" class="block py-2 text-slate-300 hover:text-white transition-colors">Contact</a>
-            </div>
-        </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
-        <div class="wavy-bg"></div>
-        <div class="container mx-auto px-6 py-12 relative z-10">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-animation opacity-0">
-                        Fikri <span class="gradient-text">Abdullah</span>
-                    </h1>
-                    <h2 class="text-2xl md:text-3xl font-medium mb-6 text-slate-300 opacity-0" id="typed-text"></h2>
-                    <p class="text-lg text-slate-400 mb-8 max-w-lg text-animation opacity-0">
-                        Software Engineer with a fullstack and backend focus — designing APIs, databases, and end-to-end systems for products that need to hold up in production. Currently building toward infrastructure and cloud engineering.
-                    </p>
-                    <div class="flex space-x-4 opacity-0 text-animation">
-                        <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/20 transition-all">
-                            Contact Me
-                        </a>
-                        <a href="#projects" class="px-6 py-3 border border-slate-700 rounded-lg font-medium hover:border-purple-500 transition-colors">
-                            View Projects
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-                    <div class="card-3d-wrapper">
-                        <div class="card w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-600/30 border border-slate-700 flex items-center justify-center transform opacity-0" id="profile-card">
-                            <img src="assets/foto cv.jpg" alt="Fikri Abdullah" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover object-center">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                <div class="scroll-down text-slate-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/3">
-                    <h2 class="text-3xl font-bold mb-6">
-                        About <span class="gradient-text">Me</span>
-                    </h2>
-                    <div class="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-600 mb-8"></div>
-                </div>
-                <div class="md:w-2/3">
-                    <p class="text-lg text-slate-300 mb-6 about-text opacity-0">
-                        I'm a recent Informatics graduate from Universitas Sebelas Maret (GPA 3.76/4.00) with a strong focus on backend and fullstack development, and a growing pull toward infrastructure and systems engineering. I'm an AWS re/Start graduate, comfortable with Docker, getting hands-on with Kubernetes, and generally curious about how production systems stay reliable at scale.
-                    </p>
-                    <p class="text-lg text-slate-300 mb-6 about-text opacity-0">
-                        My work spans the full stack, from backend systems and databases to frontend interfaces and API design. I've shipped CRM systems, a DeFi token protocol on Base, and ML-integrated web applications — and served as a Teaching Assistant for Object-Oriented Programming, Computer Organization & Architecture, and Digital Systems.
-                    </p>
-                    <p class="text-lg text-slate-300 mb-8 about-text opacity-0">
-                        My experience with Bangkit Academy by Google, GoTo, Tokopedia, and Traveloka has significantly sharpened my skills in machine learning and data science, while also expanding my capabilities in backend and frontend development to tackle real-world challenges.
-                    </p>                    
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                        <div class="card p-4 text-center about-stat opacity-0">
-                            <h3 class="text-3xl font-bold gradient-text mb-2">10+</h3>
-                            <p class="text-slate-400">Projects</p>
-                        </div>
-                        <div class="card p-4 text-center about-stat opacity-0">
-                            <h3 class="text-3xl font-bold gradient-text mb-2">3+</h3>
-                            <p class="text-slate-400">Years Coding</p>
-                        </div>
-                        <div class="card p-4 text-center about-stat opacity-0">
-                            <h3 class="text-3xl font-bold gradient-text mb-2">5+</h3>
-                            <p class="text-slate-400">Certifications</p>
-                        </div>
-                        <div class="card p-4 text-center about-stat opacity-0">
-                            <h3 class="text-3xl font-bold gradient-text mb-2">4+</h3>
-                            <p class="text-slate-400">Tech Stacks</p>
-                        </div>
-                    </div>
-                    
-                    <div class="about-text opacity-0">
-                        <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/20 transition-all inline-block">
-                            Get in Touch
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Experience Section -->
-    <section id="experience" class="py-24 bg-slate-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-2">
-                Professional <span class="gradient-text">Experience</span>
-            </h2>
-            <p class="text-slate-400 text-center mb-12">My journey in the tech industry and academia</p>
-            
-            <div class="relative timeline">
-                <!-- Timeline line -->
-                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-slate-700"></div>
-                
-                <!-- Timeline items -->
+<body>
+    <a class="skip" href="#main">Skip to content</a>
 
-                <div class="timeline-item mb-12 md:mr-auto md:pr-12 md:w-1/2 relative md:pl-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute right-0 top-6 transform translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">Web3 Developer</h3>
-                                <p class="text-slate-400">PT. Dynamic Labs International</p>
-                            </div>
-                            <span class="text-sm text-slate-400">01/2026 - 04/2026</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Built a Next.js frontend integrated with smart contracts on the Base blockchain, working in Agile sprints</li>
-                            <li>Launched a token on Base and drove it to 742,055 tokens sold within the contract period</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item mb-12 md:ml-auto md:pl-12 md:w-1/2 relative md:pr-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute left-0 top-6 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">AWS re/Start Graduate</h3>
-                                <p class="text-slate-400">Amazon Web Services</p>
-                            </div>
-                            <span class="text-sm text-slate-400">10/2025 - 12/2025</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Completed AWS re/Start, an intensive cloud computing readiness program covering AWS core services, Linux administration, networking fundamentals, and Python</li>
-                            <li>Built foundational skills in cloud architecture and deployment, laying the groundwork for infrastructure-focused engineering work</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item mb-12 md:mr-auto md:pr-12 md:w-1/2 relative md:pl-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute right-0 top-6 transform translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">IT Fullstack Developer</h3>
-                                <p class="text-slate-400">Danzstore Software House</p>
-                            </div>
-                            <span class="text-sm text-slate-400">06/2025 - 03/2026</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Built and maintained a CRM system in Laravel + PostgreSQL, streamlining client management and internal workflows</li>
-                            <li>Shipped a company profile site with an integrated analytics dashboard (Laravel, PostgreSQL, JavaScript)</li>
-                            <li>Integrated machine learning models into a Laravel application to power predictive, data-driven features</li>
-                            <li>Optimized PostgreSQL queries and schemas, improving performance at scale</li>
-                            <li>Translated business requirements into REST API-based solutions with cross-functional teams</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item mb-12 md:ml-auto md:pl-12 md:w-1/2 relative md:pr-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute left-0 top-6 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">IT Fullstack Intern</h3>
-                                <p class="text-slate-400">Soko Financial</p>
-                            </div>
-                            <span class="text-sm text-slate-400">01/2025 - 03/2025</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Developed an interactive chatbot system in PHP/Laravel, improving customer service efficiency and engagement</li>
-                            <li>Optimized automated chatbot responses, cutting response time for common customer inquiries</li>
-                            <li>Tested and validated chatbot workflows and API integrations with cross-functional teams</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item mb-12 md:mr-auto md:pr-12 md:w-1/2 relative md:pl-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute right-0 top-6 transform translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">Teaching Assistant Object Oriented Programming</h3>
-                                <p class="text-slate-400">Sebelas Maret University</p>
-                            </div>
-                            <span class="text-sm text-slate-400">09/2024 - 01/2025</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Collaborated with lecturers to design and deliver instructional materials and practical exercises for the Object-Oriented Programming (OOP) class</li>
-                            <li>Guided and assisted students in mastering core OOP concepts and principles, offering support in coding practices and problem-solving tailored for informatics students</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item mb-12 md:ml-auto md:pl-12 md:w-1/2 relative md:pr-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute left-0 top-6 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">Bangkit Academy 2024 - Machine Learning Learning Path</h3>
-                                <p class="text-slate-400">By Google, GoTo, Tokopedia, Traveloka</p>
-                            </div>
-                            <span class="text-sm text-slate-400">08/2024 - 01/2025</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Acquired knowledge and hands-on experience in supervised and unsupervised learning, deep learning, and natural language processing</li>
-                            <li>Worked through courses by industry leaders such as Coursera, DeepLearning.AI, and Google, covering topics like TensorFlow, data preparation, and model deployment</li>
-                            <li>Collaborated with a multidisciplinary team to design and implement a machine learning solution addressing a real-world problem</li>
-                            <li>Developed, deployed, and showcased a fully functional web-based app powered by machine learning models</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item mb-12 md:mr-auto md:pr-12 md:w-1/2 relative md:pl-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute right-0 top-6 transform translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">Teaching Assistant Digital System</h3>
-                                <p class="text-slate-400">Sebelas Maret University</p>
-                            </div>
-                            <span class="text-sm text-slate-400">09/2023 - 09/2023</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Collaborated with lecturers to develop and deliver instructional material and hands-on exercises for digital systems class</li>
-                            <li>Taught and assisted students in understanding key concepts of Digital Systems, and provided support in problem-solving for informatics students</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item mb-12 md:ml-auto md:pl-12 md:w-1/2 relative md:pr-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute left-0 top-6 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">Teaching Assistant Computer Systems Organization</h3>
-                                <p class="text-slate-400">Sebelas Maret University</p>
-                            </div>
-                            <span class="text-sm text-slate-400">09/2023 - 12/2023</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Collaborated with lecturers to develop and deliver instructional materials and hands-on exercises for computer systems organization class</li>
-                            <li>Taught and assisted students in understanding key concepts of Computer Systems Organization, such as CPU architecture, memory hierarchy, and assembly language programming</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item mb-12 md:mr-auto md:pr-12 md:w-1/2 relative md:pl-12 opacity-0">
-                    <div class="timeline-dot hidden md:block absolute right-0 top-6 transform translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                    <div class="card p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">Barista</h3>
-                                <p class="text-slate-400">Kopi Scooter</p>
-                            </div>
-                            <span class="text-sm text-slate-400">01/2023 - 03/2023</span>
-                        </div>
-                        <ul class="text-slate-300 space-y-2 list-disc list-inside">
-                            <li>Communicated effectively with customers, fostering a collaborative and supportive work environment</li>
-                            <li>Quickly adapted to new environments and systems</li>
-                            <li>Successfully balanced part-time work commitments with academic responsibilities, demonstrating effective time management skills</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-slate-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-2">
-                My <span class="gradient-text">Projects</span>
-            </h2>
-            <p class="text-slate-400 text-center mb-12">A selection of my recent work and academic projects</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card card overflow-hidden opacity-0">
-                    <img src="assets/dynamic-labs.png" alt="Dynamic Labs DNA Protocol" class="w-full h-48 object-cover">
-                    <div class="project-overlay">
-                        <h3 class="text-xl font-bold mb-2">Dynamic Labs — $DNA Protocol</h3>
-                        <p class="text-slate-300 mb-4">A Next.js dApp for Dynamic Labs' DeFi token protocol on the Base blockchain, connecting a wallet-based swap interface to on-chain smart contracts. Helped drive the token launch to 742,055 tokens sold within the contract period.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300">Next.js</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-300">Web3</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-teal-500/20 text-teal-300">Smart Contracts</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300">Base</span>
-                        </div>
-                        <a href="https://www.dynamiclabs.app/" target="_blank" class="text-blue-400 hover:text-blue-300 flex items-center">
-                            View Project
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card card overflow-hidden opacity-0">
-                    <img src="assets/soko-financial.png" alt="Soko Financial Edu" class="w-full h-48 object-cover">
-                    <div class="project-overlay">
-                        <h3 class="text-xl font-bold mb-2">Soko Financial Education Platform</h3>
-                        <p class="text-slate-300 mb-4">An interactive educational platform for financial literacy with integrated chatbot support and secure user authentication system.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300">Full Stack</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-300">React</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300">Node.js</span>
-                        </div>
-                        <a href="https://sokofinancialedu.com/" target="_blank" class="text-blue-400 hover:text-blue-300 flex items-center">
-                            View Project
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card card overflow-hidden opacity-0">
-                    <img src="assets/mood-detector.png" alt="Mood Prediction" class="w-full h-48 object-cover">
-                    <div class="project-overlay">
-                        <h3 class="text-xl font-bold mb-2">Mood Prediction Application</h3>
-                        <p class="text-slate-300 mb-4">A machine learning application that predicts user mood based on text input, built with Streamlit and deployed as a web application.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300">Machine Learning</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-300">Python</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-teal-500/20 text-teal-300">Streamlit</span>
-                        </div>
-                        <a href="https://mood-prediction-train.streamlit.app/?" target="_blank" class="text-blue-400 hover:text-blue-300 flex items-center">
-                            View Project
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card card overflow-hidden opacity-0">
-                    <img src="assets/bike-rental.png" alt="Bike Rental Dashboard" class="w-full h-48 object-cover">
-                    <div class="project-overlay">
-                        <h3 class="text-xl font-bold mb-2">Bike Rental Dashboard</h3>
-                        <p class="text-slate-300 mb-4">An interactive data visualization dashboard for bike rental analytics with dynamic filters and real-time data updates.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300">Data Analysis</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-yellow-500/20 text-yellow-300">Streamlit</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-300">Pandas</span>
-                        </div>
-                        <a href="https://fikriiaabdullah-bike-rent-dashboardbike-rental-dashboard-n6stq6.streamlit.app/?" target="_blank" class="text-blue-400 hover:text-blue-300 flex items-center">
-                            View Project
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card card overflow-hidden opacity-0">
-                    <img src="assets/hr manajemen.jpg" alt="HR Management Website" class="w-full h-48 object-cover">
-                    <div class="project-overlay">
-                        <h3 class="text-xl font-bold mb-2">HR Management Website</h3>
-                        <p class="text-slate-300 mb-4">A full-stack HR management platform built using the MERN stack, enabling employee onboarding, attendance tracking, leave management, and payroll automation.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300">MongoDB</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-gray-500/20 text-gray-300">Express.js</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300">React</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-300">Node.js</span>
-                        </div>
-                        <a href="https://hadirbos.vercel.app" class="text-blue-400 hover:text-blue-300 flex items-center">
-                            View Project
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card card overflow-hidden opacity-0">
-                    <img src="assets/ecommerce-home.png" alt="Ziyadbook E-commerce" class="w-full h-48 object-cover">
-                    <div class="project-overlay">
-                        <h3 class="text-xl font-bold mb-2">Ziyadbook E-commerce</h3>
-                        <p class="text-slate-300 mb-4">A comprehensive e-commerce platform built with Laravel and Tailwind CSS, featuring Meta Pixel integration for analytics and Raja Ongkir API for shipping cost calculations across Indonesia.</p>
-                        <div class="flex space-x-2 mb-4">
-                            <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-300">Laravel</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300">Tailwind CSS</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-300">Meta Pixel</span>
-                            <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300">Raja Ongkir</span>
-                        </div>
-                        <button onclick="openProjectModal('ziyadbook')" class="text-blue-400 hover:text-blue-300 flex items-center cursor-pointer">
-                            View Screenshots
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>             
-            </div>
-        </div>
-    </section>
-    
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 bg-slate-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-2">
-                Technical <span class="gradient-text">Skills</span>
-            </h2>
-            <p class="text-slate-400 text-center mb-12">Technologies and tools I work with</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Programming Languages</h3>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">PHP</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="90"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">SQL / PostgreSQL</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="85"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">JavaScript</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="75"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Python</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="65"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Java</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="60"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">TypeScript</span>
-                            <span>55%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="55"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Frameworks & Tools</h3>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Laravel</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="90"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">REST API Design</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="85"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Next.js / React</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="65"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Node.js</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="60"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">TensorFlow (ML Integration)</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="60"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">MongoDB</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="60"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Express.js</span>
-                            <span>55%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="55"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Infrastructure & Cloud</h3>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Git / GitHub</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="85"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Docker</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="60"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">AWS (re/Start Graduate)</span>
-                            <span>55%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="55"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Kubernetes</span>
-                            <span>35%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="35"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Linux & Networking</span>
-                            <span>45%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="45"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">CI/CD Pipelines</span>
-                            <span>40%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="40"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-item card p-4 mb-4 opacity-0">
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Terraform (learning)</span>
-                            <span>25%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-width="25"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-16">
-                <h3 class="text-xl font-bold mb-6 text-center">Other Skills</h3>
-                
-                <div class="flex flex-wrap justify-center gap-4">
-                    <div class="bg-slate-700/50 px-4 py-2 rounded-full text-slate-300 hover:bg-slate-700 transition-colors skill-pill opacity-0">RESTful APIs</div>
-                    <div class="bg-slate-700/50 px-4 py-2 rounded-full text-slate-300 hover:bg-slate-700 transition-colors skill-pill opacity-0">Database Query Optimization</div>
-                    <div class="bg-slate-700/50 px-4 py-2 rounded-full text-slate-300 hover:bg-slate-700 transition-colors skill-pill opacity-0">Database Design</div>
-                    <div class="bg-slate-700/50 px-4 py-2 rounded-full text-slate-300 hover:bg-slate-700 transition-colors skill-pill opacity-0">Smart Contracts / Web3</div>
-                    <div class="bg-slate-700/50 px-4 py-2 rounded-full text-slate-300 hover:bg-slate-700 transition-colors skill-pill opacity-0">ML Model Integration</div>
-                    <div class="bg-slate-700/50 px-4 py-2 rounded-full text-slate-300 hover:bg-slate-700 transition-colors skill-pill opacity-0">Agile Methodologies</div>
-                    <div class="bg-slate-700/50 px-4 py-2 rounded-full text-slate-300 hover:bg-slate-700 transition-colors skill-pill opacity-0">System Design</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-slate-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-2">
-                Get In <span class="gradient-text">Touch</span>
-            </h2>
-            <p class="text-slate-400 text-center mb-12">Feel free to reach out for collaborations or just a friendly chat</p>
-            
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="md:w-1/2">
-                    <form action="https://formspree.io/f/movdvppn" method="POST" class="card p-6">
-                      <div class="mb-4">
-                        <label for="name" class="block text-slate-300 mb-2">Your Name</label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-purple-500 transition-colors">
-                      </div>
-                  
-                      <div class="mb-4">
-                        <label for="email" class="block text-slate-300 mb-2">Your Email</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-purple-500 transition-colors">
-                      </div>
-                  
-                      <div class="mb-4">
-                        <label for="message" class="block text-slate-300 mb-2">Your Message</label>
-                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-purple-500 transition-colors"></textarea>
-                      </div>
-                  
-                      <button type="submit" class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/20 transition-all">
-                        Send Message
-                      </button>
-                    </form>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="card p-6 mb-8">
-                        <h3 class="text-xl font-bold mb-4">Contact Information</h3>
-                        
-                        <div class="flex items-start mb-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-slate-300">Email</h4>
-                                <p class="text-slate-400">fikriiaabdul@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start mb-4">
-                            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-slate-300">Location</h4>
-                                <p class="text-slate-400">Surakarta, Indonesia</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-slate-300">Phone</h4>
-                                <p class="text-slate-400">+62 822 3149 6740</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card p-6">
-                        <h3 class="text-xl font-bold mb-4">Connect With Me</h3>
-                        
-                        <div class="flex space-x-4">                            
-                            <a href="https://github.com/fikriiaabdullah" class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center hover:bg-blue-500/30 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                            
-                            <a href="https://www.linkedin.com/in/fikriiaabdullah/" class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center hover:bg-blue-500/30 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M0 0v24h24v-24h-24zm8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z"/>
-                                </svg>
-                            </a>
-                            
-                            <a href="https://instagram.com/fikriiaabdullah" target="_blank" class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center hover:bg-blue-500/30 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1h-2c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1h2zM12 7c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-                                </svg>
-                            </a>                 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script src="script.js"></script> 
-</body>
-<!-- Footer Section -->
-<footer class="py-8 bg-slate-900 border-t border-slate-800">
-    <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">F</span>
-                    </div>
-                    <span class="text-lg font-bold gradient-text">Fikri Abdullah</span>
-                </div>
-                <p class="text-slate-400 mt-2">Fullstack & Backend Developer</p>
-            </div>
-            
-            <div class="text-center md:text-right">
-                <p class="text-slate-400">&copy; 2026 Fikri Abdullah. All rights reserved.</p>
-                <p class="text-slate-500 text-sm mt-1">Made with passion and code</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- Project Modal -->
-<div id="projectModal" class="modal-overlay hidden">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3 id="modalTitle" class="text-2xl font-bold gradient-text">Project Screenshots</h3>
-            <button onclick="closeProjectModal()" class="modal-close">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+    <header class="topbar">
+        <div class="wrap topbar-inner">
+            <a href="#top" class="mark" aria-label="Back to top">Fikri Abdullah</a>
+            <nav class="nav" id="nav">
+                <a href="#wika">Now</a>
+                <a href="#experience">Experience</a>
+                <a href="#work">Work</a>
+                <a href="#toolbox">Toolbox</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="theme-btn" id="theme-btn" type="button" aria-label="Toggle colour theme">
+                <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+                <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
             </button>
+            <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
         </div>
-        <div class="modal-body">
-            <div id="modalContent" class="space-y-4">
-                <!-- Screenshots will be loaded here -->
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero wrap" id="top">
+            <div class="hero-text">
+                <p class="eyebrow reveal">Software engineer · Surakarta, Indonesia</p>
+                <h1 class="display reveal">
+                    I build software that turns messy project documents into <em>numbers people can check.</em>
+                </h1>
+                <p class="lede reveal">
+                    Right now that means AI and automation tools for project control at
+                    <strong>PT Wijaya Karya (Persero) Tbk</strong>, Building Division, where I work as
+                    Staf AI Development. Before that: CRMs, a DeFi dApp on Base, and ML-backed web apps.
+                </p>
+                <div class="hero-actions reveal">
+                    <a href="#wika" class="btn btn-solid">See the WIKA work</a>
+                    <a href="#contact" class="btn btn-line">Get in touch</a>
+                </div>
             </div>
+            <figure class="hero-photo reveal">
+                <div class="frame"><img src="assets/foto-cv.webp" alt="Portrait of Fikri Abdullah" width="720" height="720" fetchpriority="high"></div>
+                <figcaption>Informatics, Universitas Sebelas Maret · GPA 3.76 / 4.00 · AWS re/Start graduate</figcaption>
+            </figure>
+        </section>
+
+        <section class="facts wrap" aria-label="Highlights">
+            <div class="fact reveal"><span class="fact-num" data-count="147">147</span><span class="fact-label">commits on Kendali Proyek WIKA since Sep 2026</span></div>
+            <div class="fact reveal"><span class="fact-num">16/16</span><span class="fact-label">DCMA criteria matching Oracle's official assessment</span></div>
+            <div class="fact reveal"><span class="fact-num" data-count="557">557</span><span class="fact-label">automated test functions in the backend</span></div>
+            <div class="fact reveal"><span class="fact-num" data-count="41">41</span><span class="fact-label">tenders tracked through approval on one project</span></div>
+        </section>
+
+        <!-- WIKA -->
+        <section class="section" id="wika">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-no">01</span>
+                    <h2>Now at WIKA</h2>
+                    <p>Staf AI Development, Building Division · PT Wijaya Karya (Persero) Tbk · 08/2026 – present</p>
+                </div>
+
+                <!-- Case A -->
+                <article class="case reveal">
+                    <div class="case-meta">
+                        <span class="tag">Web app · AI</span>
+                        <h3>Kendali Proyek WIKA <span class="aka">(PCP AI Agent)</span></h3>
+                        <p class="case-lede">
+                            A dashboard and chat for the Project Control &amp; Planning team that answers questions about
+                            schedules, progress, constraints and vendors <em>only</em> from documents in the database,
+                            and always names the source file. If nothing matches, the model isn't called at all.
+                        </p>
+                        <ul class="ticks">
+                            <li>Reads Excel, PDF, PowerPoint, Word and MS Project XML. A 51&nbsp;MB schedule parses in about 4&nbsp;seconds.</li>
+                            <li>Computes all 16 DCMA schedule-health criteria in Python; results match Oracle's assessment 16 of 16 on DPR II IKN and SMA Unggul Garuda Kaltara.</li>
+                            <li>Turns Last Planner System reports into PPC and a constraint log, and plots weekly progress against the planned S-curve read from PDF.</li>
+                            <li>Two-role approval: a new document doesn't feed the chat until an approver opens and accepts it.</li>
+                            <li>Numbers are computed by code and handed to the model, never generated by it. Provider switches between Gemini and Claude by config, and the fallback is shown on screen.</li>
+                        </ul>
+                        <p class="stack">FastAPI · SQLAlchemy · PostgreSQL · Alembic · Next.js 16 · React 19 · Tailwind v4 · shadcn/ui · Recharts · BM25 retrieval · Gemini API</p>
+                    </div>
+                    <div class="case-visual" aria-hidden="true">
+                        <div class="flow" data-flow>
+                            <div class="flow-step"><span>01</span><b>Upload</b><small>Excel, PDF, PPT, Word, MS Project</small></div>
+                            <div class="flow-step"><span>02</span><b>Approve</b><small>held back until a reviewer accepts</small></div>
+                            <div class="flow-step is-key"><span>03</span><b>Compute</b><small>DCMA, PPC, S-curve in Python</small></div>
+                            <div class="flow-step"><span>04</span><b>Answer</b><small>dashboard + chat with sources</small></div>
+                        </div>
+                        <dl class="mini-stats">
+                            <div><dt>Projects onboarded</dt><dd>7</dd></div>
+                            <div><dt>Backend response</dt><dd>&lt;100 ms</dd></div>
+                            <div><dt>SMA Garuda score</dt><dd>96 = Oracle</dd></div>
+                        </dl>
+                    </div>
+                </article>
+
+                <!-- Case B -->
+                <article class="case case-flip reveal">
+                    <div class="case-meta">
+                        <span class="tag">Automation · Python</span>
+                        <h3>Monthly-report monitor <span class="aka">(Lapbul INBD bot)</span></h3>
+                        <p class="case-lede">
+                            Every month, project sites upload six reports to SharePoint and the central team ticks them
+                            off in an Excel checklist by hand. The bot does the checking and the chasing.
+                        </p>
+                        <ul class="ticks">
+                            <li>Reads each project's SharePoint folder and compares it with the checklist, matching projects by code, not by name.</li>
+                            <li>Writes V/X into a <em>copy</em> of the checklist, then reopens it and compares every cell (values, formulas, styles, comments, merged cells). Any change outside the plan and the copy is thrown away.</li>
+                            <li>Builds next month's checklist sheet from the previous one.</li>
+                            <li>Sends WhatsApp reminders only to projects that are still incomplete, on a staged schedule with escalation after the deadline.</li>
+                        </ul>
+                        <p class="stack">Python · uv · openpyxl · pytest · SharePoint · WhatsApp</p>
+                    </div>
+                    <div class="case-visual" aria-hidden="true">
+                        <ol class="strip">
+                            <li><b>Last day of M</b><small>reminder</small></li>
+                            <li class="s-up"><b>1–2</b><small>upload window</small></li>
+                            <li class="s-ok"><b>3</b><small>on-time deadline</small></li>
+                            <li class="s-late"><b>4–5</b><small>late, escalated</small></li>
+                            <li class="s-off"><b>after 5</b><small>closed</small></li>
+                        </ol>
+                        <p class="visual-note">Stages 1–4 built; the daily scheduler is next.</p>
+                    </div>
+                </article>
+
+                <!-- Case C + D -->
+                <div class="case-pair">
+                    <article class="case-small reveal">
+                        <span class="tag">Procurement</span>
+                        <h3>Vendor procurement, SMA Unggul Garuda Kalimantan Utara</h3>
+                        <p>
+                            On-site support for the KSO WIKA–WEGE project team: following each work package through
+                            the eleven stages from terms of reference (KAK) to contract, keeping the approval tracker
+                            for 41 tenders on WISE, WIKA's tender platform, across eleven approver roles, and
+                            assembling vendor document checklists, negotiation minutes (BAKN) and evaluations (DEPKN).
+                        </p>
+                        <p class="stack">WISE · Excel · SharePoint · Python (python-docx, openpyxl)</p>
+                    </article>
+                    <article class="case-small reveal">
+                        <span class="tag">ERP</span>
+                        <h3>SAP ERP at WIKA</h3>
+                        <p>
+                            Trained on WIKA's SAP modules to understand where project data comes from:
+                            FI, MM (material and service POs, down payments, goods receipt), PS (WBS templates)
+                            and SD (construction contracts, revenue from actual progress).
+                        </p>
+                        <p class="stack">SAP FI · MM · PS · SD</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section section-alt" id="experience">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-no">02</span>
+                    <h2>Experience</h2>
+                </div>
+                <ol class="xp">
+                    <li class="reveal">
+                        <span class="xp-date">08/2026 – now</span>
+                        <div>
+                            <h3>Staf AI Development, Building Division</h3>
+                            <p class="xp-org">PT Wijaya Karya (Persero) Tbk</p>
+                            <ul>
+                                <li>Building Kendali Proyek WIKA, an evidence-only AI assistant and dashboard for Project Control &amp; Planning</li>
+                                <li>Built a Python bot that audits monthly project reports on SharePoint and sends reminders</li>
+                                <li>Supporting vendor procurement and tender approvals on SMA Unggul Garuda Kalimantan Utara</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="xp-date">01/2026 – 04/2026</span>
+                        <div>
+                            <h3>Web3 Developer</h3>
+                            <p class="xp-org">PT. Dynamic Labs International</p>
+                            <ul>
+                                <li>Built a Next.js frontend integrated with smart contracts on the Base blockchain, working in Agile sprints</li>
+                                <li>Launched a token on Base and drove it to 742,055 tokens sold within the contract period</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="xp-date">10/2025 – 12/2025</span>
+                        <div>
+                            <h3>AWS re/Start Graduate</h3>
+                            <p class="xp-org">Amazon Web Services</p>
+                            <ul>
+                                <li>Completed AWS re/Start, an intensive cloud computing readiness program covering AWS core services, Linux administration, networking fundamentals, and Python</li>
+                                <li>Built foundational skills in cloud architecture and deployment, laying the groundwork for infrastructure-focused engineering work</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="xp-date">06/2025 – 03/2026</span>
+                        <div>
+                            <h3>IT Fullstack Developer</h3>
+                            <p class="xp-org">Danzstore Software House</p>
+                            <ul>
+                                <li>Built and maintained a CRM system in Laravel + PostgreSQL, streamlining client management and internal workflows</li>
+                                <li>Shipped a company profile site with an integrated analytics dashboard (Laravel, PostgreSQL, JavaScript)</li>
+                                <li>Integrated machine learning models into a Laravel application to power predictive, data-driven features</li>
+                                <li>Optimized PostgreSQL queries and schemas, improving performance at scale</li>
+                                <li>Translated business requirements into REST API-based solutions with cross-functional teams</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="xp-date">01/2025 – 03/2025</span>
+                        <div>
+                            <h3>IT Fullstack Intern</h3>
+                            <p class="xp-org">Soko Financial</p>
+                            <ul>
+                                <li>Developed an interactive chatbot system in PHP/Laravel, improving customer service efficiency and engagement</li>
+                                <li>Optimized automated chatbot responses, cutting response time for common customer inquiries</li>
+                                <li>Tested and validated chatbot workflows and API integrations with cross-functional teams</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="xp-date">08/2024 – 01/2025</span>
+                        <div>
+                            <h3>Bangkit Academy 2024, Machine Learning Path</h3>
+                            <p class="xp-org">By Google, GoTo, Tokopedia, Traveloka</p>
+                            <ul>
+                                <li>Acquired knowledge and hands-on experience in supervised and unsupervised learning, deep learning, and natural language processing</li>
+                                <li>Worked through courses by industry leaders such as Coursera, DeepLearning.AI, and Google, covering topics like TensorFlow, data preparation, and model deployment</li>
+                                <li>Collaborated with a multidisciplinary team to design and implement a machine learning solution addressing a real-world problem</li>
+                                <li>Developed, deployed, and showcased a fully functional web-based app powered by machine learning models</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="xp-date">09/2023 – 01/2025</span>
+                        <div>
+                            <h3>Teaching Assistant</h3>
+                            <p class="xp-org">Universitas Sebelas Maret</p>
+                            <ul>
+                                <li><b>Object-Oriented Programming</b> (09/2024 – 01/2025): co-designed materials and exercises with lecturers; coached students on core OOP concepts and coding practice</li>
+                                <li><b>Computer Systems Organization</b> (09/2023 – 12/2023): taught CPU architecture, memory hierarchy, and assembly language programming</li>
+                                <li><b>Digital Systems</b> (09/2023): developed hands-on exercises and supported students in problem-solving</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="reveal">
+                        <span class="xp-date">01/2023 – 03/2023</span>
+                        <div>
+                            <h3>Barista</h3>
+                            <p class="xp-org">Kopi Scooter</p>
+                            <ul>
+                                <li>Communicated effectively with customers, fostering a collaborative and supportive work environment</li>
+                                <li>Balanced part-time work with academic responsibilities</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Other work -->
+        <section class="section" id="work">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-no">03</span>
+                    <h2>Earlier work</h2>
+                </div>
+                <div class="grid">
+                    <article class="proj reveal">
+                        <a class="proj-img" href="https://www.dynamiclabs.app/" target="_blank" rel="noopener"><img src="assets/dynamic-labs.webp" alt="Dynamic Labs DNA Protocol" loading="lazy"></a>
+                        <h3>Dynamic Labs — $DNA Protocol</h3>
+                        <p>A Next.js dApp for Dynamic Labs' DeFi token protocol on Base, connecting a wallet-based swap interface to on-chain smart contracts. Helped drive the token launch to 742,055 tokens sold within the contract period.</p>
+                        <p class="stack">Next.js · Web3 · Smart contracts · Base</p>
+                        <a class="more" href="https://www.dynamiclabs.app/" target="_blank" rel="noopener">View project ↗</a>
+                    </article>
+                    <article class="proj reveal">
+                        <a class="proj-img" href="https://sokofinancialedu.com/" target="_blank" rel="noopener"><img src="assets/soko-financial.webp" alt="Soko Financial Education Platform" loading="lazy"></a>
+                        <h3>Soko Financial Education Platform</h3>
+                        <p>An interactive educational platform for financial literacy with integrated chatbot support and secure user authentication.</p>
+                        <p class="stack">Full stack · React · Node.js</p>
+                        <a class="more" href="https://sokofinancialedu.com/" target="_blank" rel="noopener">View project ↗</a>
+                    </article>
+                    <article class="proj reveal">
+                        <button class="proj-img" type="button" data-modal="ziyadbook"><img src="assets/ecommerce-home.webp" alt="Ziyadbook E-commerce" loading="lazy"></button>
+                        <h3>Ziyadbook E-commerce</h3>
+                        <p>An e-commerce platform built with Laravel and Tailwind CSS, with Meta Pixel analytics and the Raja Ongkir API for shipping costs across Indonesia.</p>
+                        <p class="stack">Laravel · Tailwind CSS · Meta Pixel · Raja Ongkir</p>
+                        <button class="more" type="button" data-modal="ziyadbook">View screenshots →</button>
+                    </article>
+                    <article class="proj reveal">
+                        <a class="proj-img" href="https://hadirbos.vercel.app" target="_blank" rel="noopener"><img src="assets/hr-manajemen.webp" alt="HR Management Website" loading="lazy"></a>
+                        <h3>HR Management Website</h3>
+                        <p>A MERN-stack HR platform for employee onboarding, attendance tracking, leave management, and payroll automation.</p>
+                        <p class="stack">MongoDB · Express.js · React · Node.js</p>
+                        <a class="more" href="https://hadirbos.vercel.app" target="_blank" rel="noopener">View project ↗</a>
+                    </article>
+                    <article class="proj reveal">
+                        <a class="proj-img" href="https://mood-prediction-train.streamlit.app/?" target="_blank" rel="noopener"><img src="assets/mood-detector.webp" alt="Mood Prediction Application" loading="lazy"></a>
+                        <h3>Mood Prediction Application</h3>
+                        <p>A machine learning app that predicts mood from text input, built with Streamlit and deployed as a web application.</p>
+                        <p class="stack">Machine learning · Python · Streamlit</p>
+                        <a class="more" href="https://mood-prediction-train.streamlit.app/?" target="_blank" rel="noopener">View project ↗</a>
+                    </article>
+                    <article class="proj reveal">
+                        <a class="proj-img" href="https://fikriiaabdullah-bike-rent-dashboardbike-rental-dashboard-n6stq6.streamlit.app/?" target="_blank" rel="noopener"><img src="assets/bike-rental.webp" alt="Bike Rental Dashboard" loading="lazy"></a>
+                        <h3>Bike Rental Dashboard</h3>
+                        <p>An interactive dashboard for bike rental analytics with dynamic filters and live data updates.</p>
+                        <p class="stack">Data analysis · Streamlit · Pandas</p>
+                        <a class="more" href="https://fikriiaabdullah-bike-rent-dashboardbike-rental-dashboard-n6stq6.streamlit.app/?" target="_blank" rel="noopener">View project ↗</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toolbox -->
+        <section class="section section-alt" id="toolbox">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-no">04</span>
+                    <h2>Toolbox</h2>
+                    <p>What I reach for, grouped by the job it does.</p>
+                </div>
+                <div class="tools">
+                    <div class="reveal"><h3>Languages</h3><p>PHP, Python, SQL / PostgreSQL, JavaScript, TypeScript, Java</p></div>
+                    <div class="reveal"><h3>Backend &amp; data</h3><p>Laravel, FastAPI, SQLAlchemy + Alembic, REST API design, Node.js / Express, MongoDB, pandas, openpyxl</p></div>
+                    <div class="reveal"><h3>Frontend</h3><p>Next.js / React, Tailwind CSS, shadcn/ui, Recharts</p></div>
+                    <div class="reveal"><h3>AI &amp; ML</h3><p>LLM integration (Gemini, Claude API), BM25 retrieval, document parsing, TensorFlow, Streamlit</p></div>
+                    <div class="reveal"><h3>Infrastructure</h3><p>Git / GitHub, Docker, AWS (re/Start), Linux &amp; networking, CI/CD, Kubernetes and Terraform (learning)</p></div>
+                    <div class="reveal"><h3>Construction domain</h3><p>DCMA schedule health, Last Planner System &amp; PPC, S-curve progress, vendor procurement, SAP ERP (FI, MM, PS, SD)</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <div class="wrap contact">
+                <div class="reveal">
+                    <div class="section-head">
+                        <span class="section-no">05</span>
+                        <h2>Contact</h2>
+                    </div>
+                    <p class="contact-lede">For collaborations, roles, or a question about any of the above.</p>
+                    <dl class="contact-list">
+                        <div><dt>Email</dt><dd><a href="mailto:fikriiaabdul@gmail.com">fikriiaabdul@gmail.com</a></dd></div>
+                        <div><dt>Phone</dt><dd>+62 822 3149 6740</dd></div>
+                        <div><dt>Location</dt><dd>Surakarta, Indonesia</dd></div>
+                        <div><dt>Elsewhere</dt><dd>
+                            <a href="https://github.com/fikriiaabdullah" target="_blank" rel="noopener">GitHub</a> ·
+                            <a href="https://www.linkedin.com/in/fikriiaabdullah/" target="_blank" rel="noopener">LinkedIn</a> ·
+                            <a href="https://instagram.com/fikriiaabdullah" target="_blank" rel="noopener">Instagram</a>
+                        </dd></div>
+                    </dl>
+                </div>
+                <form id="contact-form" class="form reveal" action="https://formspree.io/f/movdvppn" method="POST">
+                    <label>Name<input type="text" id="name" name="name" required></label>
+                    <label>Email<input type="email" id="email" name="email" required></label>
+                    <label>Message<textarea id="message" name="message" rows="5" required></textarea></label>
+                    <button type="submit" class="btn btn-solid">Send message</button>
+                    <p class="form-status" id="form-status" role="status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-inner">
+            <span>© 2026 Fikri Abdullah</span>
+            <a href="#top">Back to top ↑</a>
         </div>
-    </div>
-</div>
+    </footer>
+
+    <dialog id="project-modal" class="modal">
+        <div class="modal-head">
+            <h3 id="modal-title">Project screenshots</h3>
+            <button type="button" class="modal-close" id="modal-close" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
