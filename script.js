@@ -85,54 +85,6 @@ const sectionObserver = new IntersectionObserver(
 )
 document.querySelectorAll("main section[id]").forEach((s) => sectionObserver.observe(s))
 
-// Soft spotlight that follows the pointer on the WIKA cards
-document.querySelectorAll(".card").forEach((card) => {
-  card.addEventListener("pointermove", (e) => {
-    const r = card.getBoundingClientRect()
-    card.style.setProperty("--mx", `${e.clientX - r.left}px`)
-    card.style.setProperty("--my", `${e.clientY - r.top}px`)
-  })
-})
-
-// Kendali Proyek showcase: tabs switch screens, and it auto-advances while in view
-const showcase = document.querySelector(".showcase")
-if (showcase) {
-  const tabs = [...showcase.querySelectorAll("[data-shot]")]
-  const shots = [...showcase.querySelectorAll(".shot")]
-  const DWELL = 5000
-  showcase.style.setProperty("--dwell", `${DWELL}ms`)
-  let current = 0
-  let timer = null
-
-  const show = (i) => {
-    current = i
-    tabs.forEach((t, k) => t.setAttribute("aria-selected", String(k === i)))
-    shots.forEach((s, k) => s.classList.toggle("is-on", k === i))
-    // Restart the timer bar animation on the newly selected tab
-    showcase.classList.remove("playing")
-    void showcase.offsetWidth
-    if (timer) showcase.classList.add("playing")
-  }
-  const play = () => {
-    if (reduceMotion || timer) return
-    timer = setInterval(() => show((current + 1) % shots.length), DWELL)
-    showcase.classList.add("playing")
-  }
-  const stop = () => {
-    clearInterval(timer)
-    timer = null
-    showcase.classList.remove("playing")
-  }
-
-  tabs.forEach((t, i) =>
-    t.addEventListener("click", () => {
-      stop()
-      show(i)
-    }),
-  )
-  new IntersectionObserver(([e]) => (e.isIntersecting ? play() : stop()), { threshold: 0.4 }).observe(showcase)
-}
-
 // Light / dark toggle; the choice is remembered, otherwise the system setting wins
 const themeBtn = document.getElementById("theme-btn")
 const systemDark = window.matchMedia("(prefers-color-scheme: dark)")
